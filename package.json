@@ -1,0 +1,19 @@
+{
+  "name": "@data-fair/vue-cli-plugin-app",
+  "version": "0.0.0",
+  "description": "A vue-cli plugin to create data-fair applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/data-fair/vue-cli-plugin-app.git"
+  },
+  "author": "Alban Mouton <alban.mouton@koumoul.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/data-fair/vue-cli-plugin-app/issues"
+  },
+  "homepage": "https://github.com/data-fair/vue-cli-plugin-app#readme"
+}
