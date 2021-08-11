@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: process.env.PUBLIC_URL || '/app'
+  publicPath: process.env.PUBLIC_URL || '/app',
 }

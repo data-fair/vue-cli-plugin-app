@@ -4,7 +4,8 @@
   "description": "A vue-cli plugin to create data-fair applications",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint --ignore-path .gitignore .",
+    "lint-fix": "eslint --ignore-path .gitignore --fix ."
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/data-fair/vue-cli-plugin-app/issues"
   },
-  "homepage": "https://github.com/data-fair/vue-cli-plugin-app#readme"
+  "homepage": "https://github.com/data-fair/vue-cli-plugin-app#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-vuetify": "^0.6.1"
+  }
 }
