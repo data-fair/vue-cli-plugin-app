@@ -1,6 +1,8 @@
 module.exports = {
   publicPath: process.env.PUBLIC_URL || '/app',
   transpileDependencies: [
-    'vuetify'
+    'vuetify',
+    /@koumoul/,
+    /@data-fair/,
   ]
 }
