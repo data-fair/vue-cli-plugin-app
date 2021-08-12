@@ -8,6 +8,6 @@ A vue-cli plugin to create data-fair applications
     vue create my-app # the default vue 2 preset is ok
     cd my-app
     vue add vuex
-    vue add vuetify
+    vue add vuetify # chose the default preset
     vue add @data-fair/app
     npm run dev

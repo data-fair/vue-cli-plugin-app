@@ -38,7 +38,7 @@ Run the development server and serve the application with hot reload:
 
     npm run dev
 
-## static/config-schema.json
+## public/config-schema.json
 
 A JSON schema file that describes the expected configuration. DataFair expects this file to be found at the precise path %MY APP%/config-schema.json.
 

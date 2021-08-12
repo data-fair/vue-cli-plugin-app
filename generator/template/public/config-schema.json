@@ -31,9 +31,9 @@
       "items": [
         {
           "title": "Jeu de données",
-          "description": "Ce jeu doit contenir au moins une colonne avec valeur numérique",
+          "description": "Ce jeu de données contient les données source de la visualisation",
           "type": "object",
-          "x-fromUrl": "api/v1/datasets?status=finalized&field-type=integer,number&q={q}&select=id,title&owner={context.owner.type}:{context.owner.id}",
+          "x-fromUrl": "api/v1/datasets?status=finalized&q={q}&select=id,title&owner={context.owner.type}:{context.owner.id}",
           "x-itemsProp": "results",
           "x-itemTitle": "title",
           "x-itemKey": "href",
@@ -53,7 +53,7 @@
     },
     "filters": {
       "title": "Filtres",
-      "description": "Ces filtres seront appliquées à tous les affichages de ce graphique de manière transparente pour l'utilisateur",
+      "description": "Ces filtres seront appliqués à toutes les requêtes de récupération de données",
       "type": "array",
       "items": {
         "type": "object",
