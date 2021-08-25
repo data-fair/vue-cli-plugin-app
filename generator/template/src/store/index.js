@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-import { filters2qs } from '../assets/filters-utils'
+import { filters2qs } from '@data-fair/components-app/filters/filters'
 
 Vue.use(Vuex)
 

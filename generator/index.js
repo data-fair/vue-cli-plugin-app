@@ -8,6 +8,7 @@ module.exports = (api, options) => {
     },
     dependencies: {
       '@data-fair/dev-server': '^1.0.1',
+      "@data-fair/components-app": "^0.2.3",
       axios: '^0.21.1'
     },
     devDependencies: {
