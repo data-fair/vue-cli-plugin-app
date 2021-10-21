@@ -23,5 +23,5 @@ pnpm-debug.log*
 *.sw?
 
 # data-fair dev-server local files
-.dev-config
+.dev-config.json
 .env
