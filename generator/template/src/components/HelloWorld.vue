@@ -1,17 +1,16 @@
 <template>
-  <v-container>
+  <v-container data-iframe-height>
     <v-row class="text-center">
       <v-col cols="12">
         <v-img
           :src="require('../assets/logo.svg')"
-          class="my-3"
           contain
-          height="200"
+          height="150"
         />
       </v-col>
 
       <v-col cols="12">
-        <h1 class="text-h3 font-weight-bold mb-3">
+        <h1 class="text-h4 font-weight-bold mb-3">
           Welcome to the Data Fair ecosystem
         </h1>
 
@@ -25,12 +24,14 @@
       </v-col>
 
       <v-col cols="12">
-        <h1 class="text-h6 mb-3">
+        <h1 class="text-h6">
           Application
         </h1>
-        <p class="subheading font-weight-regular">
-          {{ application }}
-        </p>
+        <code class="text-left">
+          <pre style="max-height: 300px; overflow-y: scroll;">
+  {{ JSON.stringify(application, null, 2) }}
+            </pre>
+        </code>
       </v-col>
 
       <v-col cols="12">
@@ -41,17 +42,18 @@
           fab
           small
           color="primary"
-          class="mb-3"
           @click="fetchData"
         >
           <v-icon>mdi-refresh</v-icon>
         </v-btn>
-        <p
+        <code
           v-if="data"
-          class="subheading font-weight-regular"
+          class="text-left"
         >
-          {{ data }}
-        </p>
+          <pre style="max-height: 300px; overflow-y: scroll;">
+  {{ JSON.stringify(data, null, 2) }}
+            </pre>
+        </code>
       </v-col>
     </v-row>
   </v-container>

@@ -16,6 +16,11 @@ export default () => {
       config (state) {
         return state.application && state.application.configuration
       },
+      dataset (state, getters) {
+        return getters.config &&
+          getters.config.datasets &&
+          getters.config.datasets[0]
+      },
     },
     mutations: {
       setAny (state, params) {
@@ -24,16 +29,16 @@ export default () => {
     },
     actions: {
       init ({ state, dispatch }) {
-        // some initial data fetching maybe ?
+        dispatch('fetchData')
       },
       async fetchData ({ state, getters, commit, dispatch }) {
         const params = {
           qs: filters2qs(getters.config.staticFilters || []),
-          finalizedAt: getters.config.datasets[0].finalizedAt, // for better caching
+          finalizedAt: getters.dataset.finalizedAt, // for better caching
         }
 
         try {
-          const { data } = await axios.get(getters.config.datasets[0].href + '/lines', { params })
+          const { data } = await axios.get(getters.dataset.href + '/lines', { params })
           commit('setAny', { data })
         } catch (err) {
           dispatch('setError', (err.response && err.response.data) || err.message)

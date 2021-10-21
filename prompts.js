@@ -5,7 +5,7 @@ module.exports = pkg => {
   if (!pkg.devDependencies['@vue/cli-plugin-vuex']) {
     throw new Error('This plugin requires vuex, please run "vue add vuex" then try again.')
   }
-  
+
   const prompts = [
     {
       type: 'input',
@@ -26,6 +26,12 @@ module.exports = pkg => {
       name: 'description',
       message: 'The description of the application.',
       validate: input => !!input,
+    },
+    {
+      type: 'confirm',
+      name: 'iframeResizer',
+      message: 'Use iframe-resizer to resize the application when it is integrated in websites, portals, etc.',
+      default: true,
     },
   ]
 
