@@ -3,6 +3,6 @@ module.exports = {
   transpileDependencies: [
     'vuetify',
     /@koumoul/,
-    /@data-fair/,
+    /@data-fair/
   ]
 }

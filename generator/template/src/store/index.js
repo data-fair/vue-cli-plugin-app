@@ -10,7 +10,7 @@ export default () => {
     modules: {},
     state: {
       application: window.APPLICATION,
-      data: null,
+      data: null
     },
     getters: {
       config (state) {
@@ -20,21 +20,21 @@ export default () => {
         return getters.config &&
           getters.config.datasets &&
           getters.config.datasets[0]
-      },
+      }
     },
     mutations: {
       setAny (state, params) {
         Object.assign(state, params)
-      },
+      }
     },
     actions: {
-      init ({ state, dispatch }) {
+      init ({ dispatch }) {
         dispatch('fetchData')
       },
-      async fetchData ({ state, getters, commit, dispatch }) {
+      async fetchData ({ getters, commit, dispatch }) {
         const params = {
           qs: filters2qs(getters.config.staticFilters || []),
-          finalizedAt: getters.dataset.finalizedAt, // for better caching
+          finalizedAt: getters.dataset.finalizedAt // for better caching
         }
 
         try {
@@ -51,7 +51,7 @@ export default () => {
         } catch (err) {
           console.log('Failed to report error', err)
         }
-      },
-    },
+      }
+    }
   })
 }
