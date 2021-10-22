@@ -1,6 +1,6 @@
 module.exports = (api, options) => {
   const dependencies = {
-    '@data-fair/dev-server': '^1.0.1',
+    '@data-fair/dev-server': '^1.1.0',
     '@data-fair/components-app': '^0.2.6',
     axios: '^0.21.1'
   }
