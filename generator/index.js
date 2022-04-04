@@ -1,8 +1,8 @@
 module.exports = (api, options) => {
   const dependencies = {
-    '@data-fair/dev-server': '^1.1.0',
-    '@data-fair/components-app': '^0.2.6',
-    axios: '^0.21.1'
+    '@data-fair/dev-server': '^1.5.0',
+    '@data-fair/components-app': '^0.2.7',
+    axios: '^0.26.1'
   }
   if (options.iframeResizer) {
     dependencies['iframe-resizer'] = '^4.3.2'
@@ -19,9 +19,9 @@ module.exports = (api, options) => {
       semver: '^7.3.5',
       eslint: '^7.32.0',
       'eslint-config-standard': '^16.0.3',
-      'eslint-plugin-import': '^2.25.2',
+      'eslint-plugin-import': '^2.25.4',
       'eslint-plugin-node': '^11.1.0',
-      'eslint-plugin-promise': '^5.1.1',
+      'eslint-plugin-promise': '^5.2.0',
       'eslint-plugin-vue': '^6.2.2'
     },
     eslintConfig: {
