@@ -11,32 +11,37 @@
 
       <v-col cols="12">
         <h1 class="text-h4 font-weight-bold mb-3">
-          Welcome to the Data Fair ecosystem
+          {{ $t('welcome') }}
         </h1>
 
         <p class="subheading font-weight-regular">
-          Please read the
-          <a
-            href="https://koumoul-dev.github.io/data-fair/2/"
-            target="_blank"
-          >documentation</a>
+          <i18n path="readDoc">
+            <template #link>
+              <a
+                href="https://koumoul-dev.github.io/data-fair/2/"
+                target="_blank"
+              >doc</a>
+            </template>
+          </i18n>
         </p>
       </v-col>
 
       <v-col cols="12">
         <h1 class="text-h6">
-          Application
+          {{ $t('app') }}
         </h1>
-        <code class="text-left">
-          <pre style="max-height: 300px; overflow-y: scroll;">
+
+        <pre
+          style="max-height: 300px; overflow-y: scroll;"
+          class="text-left"
+        >
   {{ JSON.stringify(application, null, 2) }}
             </pre>
-        </code>
       </v-col>
 
       <v-col cols="12">
         <h1 class="text-h6 mb-3">
-          Data
+          {{ $t('data') }}
         </h1>
         <v-btn
           fab
@@ -44,35 +49,50 @@
           color="primary"
           @click="fetchData"
         >
-          <v-icon>mdi-refresh</v-icon>
+          <v-icon>{{ icons.mdiRefresh }}</v-icon>
         </v-btn>
-        <code
+        <pre
           v-if="data"
+          style="max-height: 300px; overflow-y: scroll;"
           class="text-left"
         >
-          <pre style="max-height: 300px; overflow-y: scroll;">
   {{ JSON.stringify(data, null, 2) }}
             </pre>
-        </code>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
-<script>
-  import { mapState, mapActions } from 'vuex'
+<i18n lang="yaml">
+fr:
+  welcome: Bienvenue dans l'écosystème Data Fair
+  readDoc: 'Veuillez lire la {doc}'
+  app: Application
+  data: Données
+en:
+  welcome: Welcome to the Data Fair ecosystem
+  readDoc: 'Please read the {doc}'
+  app: Application
+  data: Data
+</i18n>
 
-  export default {
-    name: 'HelloWorld',
-    data: () => ({}),
-    computed: {
-      ...mapState(['application', 'data']),
-    },
-    created () {
-      this.$store.dispatch('init')
-    },
-    methods: {
-      ...mapActions(['fetchData']),
-    },
+<script>
+import { mapState, mapActions } from 'vuex'
+import { mdiRefresh } from '@mdi/js'
+
+export default {
+  name: 'HelloWorld',
+  data: () => ({
+    icons: { mdiRefresh }
+  }),
+  computed: {
+    ...mapState(['application', 'data'])
+  },
+  created () {
+    this.$store.dispatch('init')
+  },
+  methods: {
+    ...mapActions(['fetchData'])
   }
+}
 </script>

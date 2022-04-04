@@ -2,7 +2,7 @@
   "type": "object",
   "allOf": [
     {
-      "title": "Source de données",
+      "title": {"$ref": "#/i18n/~$locale~/datasource"},
       "required": [ "datasets" ],
       "properties": {
         "datasets": {
@@ -14,11 +14,11 @@
       }
     },
     {
-      "title": "Présentation",
+      "title": {"$ref": "#/i18n/~$locale~/presentation"},
       "properties": {
         "primaryColor": {
           "type": "string",
-          "title": "Couleur primaire",
+          "title": {"$ref": "#/i18n/~$locale~/primaryColor"},
           "format": "hexcolor",
           "default": "#2196F3"
         }
@@ -30,8 +30,8 @@
       "type": "array",
       "items": [
         {
-          "title": "Jeu de données",
-          "description": "Ce jeu de données contient les données source de la visualisation",
+          "title": {"$ref": "#/i18n/~$locale~/dataset"},
+          "description": {"$ref": "#/i18n/~$locale~/datasetDesc"},
           "type": "object",
           "x-fromUrl": "api/v1/datasets?status=finalized&q={q}&select=id,title&owner={context.owner.type}:{context.owner.id}",
           "x-itemsProp": "results",
@@ -52,8 +52,8 @@
       ]
     },
     "filters": {
-      "title": "Filtres",
-      "description": "Ces filtres seront appliqués à toutes les requêtes de récupération de données",
+      "title": {"$ref": "#/i18n/~$locale~/filters"},
+      "description": {"$ref": "#/i18n/~$locale~/filtersDesc"},
       "type": "array",
       "items": {
         "type": "object",
@@ -65,7 +65,7 @@
         ],
         "oneOf": [
           {
-            "title": "Restreindre à des valeurs",
+            "title": {"$ref": "#/i18n/~$locale~/restrictValues"},
             "required": [
               "field"
             ],
@@ -79,7 +79,7 @@
               },
               "values": {
                 "type": "array",
-                "title": "Valeurs",
+                "title": {"$ref": "#/i18n/~$locale~/values"},
                 "items": {
                   "type": "string"
                 }
@@ -87,7 +87,7 @@
             }
           },
           {
-            "title": "Restreindre à un interval de valeurs",
+            "title": {"$ref": "#/i18n/~$locale~/restrictInterval"},
             "required": [
               "field"
             ],
@@ -100,16 +100,16 @@
               },
               "minValue": {
                 "type": "string",
-                "title": "Valeur min"
+                "title": {"$ref": "#/i18n/~$locale~/minValue"}
               },
               "maxValue": {
                 "type": "string",
-                "title": "Valeur max"
+                "title": {"$ref": "#/i18n/~$locale~/maxValue"}
               }
             }
           },
           {
-            "title": "Exclure des valeurs",
+            "title": {"$ref": "#/i18n/~$locale~/excludeValues"},
             "required": [
               "field"
             ],
@@ -122,7 +122,7 @@
               },
               "values": {
                 "type": "array",
-                "title": "Valeurs à exclure",
+                "title": {"$ref": "#/i18n/~$locale~/values"},
                 "items": {
                   "type": "string"
                 }
@@ -134,10 +134,44 @@
     },
     "filterField": {
       "type": "object",
-      "title": "Colonne de filtre",
+      "title": {"$ref": "#/i18n/~$locale~/filterField"},
       "x-fromUrl": "{datasets.0.href}/schema",
       "x-itemTitle": "label",
       "x-itemKey": "key"
+    }
+  },
+  "i18n": {
+    "fr": {
+      "datasource": "Source de données",
+      "dataset": "Jeu de données",
+      "datasetDesc": "Ce jeu de données contient les données source de la visualisation",
+      "filters": "Filtres",
+      "filtersDesc": "Ces filtres seront appliqués à toutes les requêtes de récupération de données",
+      "filterField": "Colonne de filtre",
+      "restrictValues": "Restreindre à des valeurs",
+      "values": "Valeurs",
+      "restrictInterval": "Restreindre à un interval de valeurs",
+      "minValue": "Valeur min",
+      "maxValue": "Valeur max",
+      "excludeValues": "Exclure des valeurs",
+      "presentation": "Présentation",
+      "primaryColor": "Couleur primaire"
+    },
+    "en": {
+      "datasource": "Data source",
+      "dataset": "Dataset",
+      "datasetDesc": "This dataset contains the source data for the visualization",
+      "filters": "Filters",
+      "filtersDesc": "These filters are applied to all queries fetching data",
+      "filterField": "Filter column",
+      "restrictValues": "Restrict to some values",
+      "values": "Values",
+      "restrictInterval": "Restrict to some value interval",
+      "minValue": "Min value",
+      "maxValue": "Max value",
+      "excludeValues": "Exclude values",
+      "presentation": "Presentation",
+      "primaryColor": "Primary color"
     }
   }
 }

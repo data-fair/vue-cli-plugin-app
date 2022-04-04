@@ -8,6 +8,14 @@ module.exports = pkg => {
 
   const prompts = [
     {
+      type: 'list',
+      name: 'locale',
+      message: 'The default locale of the application.',
+      validate: input => !!input,
+      default: 'fr',
+      choices: ['fr', 'en']
+    },
+    {
       type: 'input',
       name: 'title',
       message: 'The title of the application.',
@@ -26,6 +34,13 @@ module.exports = pkg => {
       name: 'description',
       message: 'The description of the application.',
       validate: input => !!input
+    },
+    {
+      type: 'input',
+      name: 'keywords',
+      message: 'Comma separated list of keywords.',
+      validate: input => !!input,
+      filter: input => input.split(',').map(keyword => keyword.trim()).filter(keyword => !!keyword)
     },
     {
       type: 'confirm',

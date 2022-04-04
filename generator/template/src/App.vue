@@ -2,54 +2,54 @@
   <v-app>
     <v-main v-if="application">
       <hello-world v-if="!configureError" />
-      <v-container v-else-if="params('draft') === 'true'">
-        <v-col class="text-center">
-          <v-alert
-            :value="true"
-            type="warning"
-            outlined
-          >
-            <h3>{{ configureError }}</h3>
-          </v-alert>
-        </v-col>
-      </v-container>
+      <config-error
+        v-else-if="params('draft') === 'true'"
+        :value="configureError"
+      />
     </v-main>
   </v-app>
 </template>
 
-<script>
-  import { mapState, mapGetters } from 'vuex'
-  import HelloWorld from './components/HelloWorld.vue'
+<i18n lang="yaml">
+fr:
+  missingDataset: Veuillez sélectionner une source de données
+en:
+  missingDataset: Please select a data source
+</i18n>
 
-  export default {
-    name: 'App',
-    components: {
-      HelloWorld,
-    },
-    data: () => ({}),
-    computed: {
-      ...mapState(['application']),
-      ...mapGetters(['dataset', 'config']),
-      configureError () {
-        if (!this.dataset) return 'Veuillez sélectionner une source de données'
-        return null
-      },
-    },
-    mounted () {
-      if (this.configureError) return
-      this.$store.dispatch('init')
-    },
-    methods: {
-      params (p) {
-        const params = new URLSearchParams(window.location.search)
-        return params.get(p)
-      },
-    },
+<script>
+import { mapState, mapGetters } from 'vuex'
+import HelloWorld from './components/HelloWorld.vue'
+const ConfigError = () => import('./components/ConfigError.vue')
+
+export default {
+  name: 'App',
+  components: {
+    HelloWorld,
+    ConfigError
+  },
+  data: () => ({}),
+  computed: {
+    ...mapState(['application']),
+    ...mapGetters(['dataset', 'config']),
+    configureError () {
+      if (!this.dataset) return this.$t('missingDataset')
+      return null
+    }
+  },
+  mounted () {
+    if (this.configureError) return
+    this.$store.dispatch('init')
+  },
+  methods: {
+    params (p) {
+      const params = new URLSearchParams(window.location.search)
+      return params.get(p)
+    }
   }
+}
 </script>
 
-<style>
-.v-application {
-  font-family: "Nunito", sans-serif!important;
-}
+<style lang="scss">
+@import './assets/css/fonts.css';
 </style>

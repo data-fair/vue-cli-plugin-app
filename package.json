@@ -17,15 +17,17 @@
     "url": "https://github.com/data-fair/vue-cli-plugin-app/issues"
   },
   "homepage": "https://github.com/data-fair/vue-cli-plugin-app#readme",
-  "dependencies": {},
+  "dependencies": {
+    "webpack-bundle-analyzer": "^4.5.0"
+  },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.1",
-    "eslint-plugin-vue": "^6.2.2"
+    "eslint-plugin-promise": "^5.2.0",
+    "eslint-plugin-vue": "^8.0.3"
   },
   "eslintConfig": {
     "root": true,
