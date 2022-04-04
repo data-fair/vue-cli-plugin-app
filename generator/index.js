@@ -1,4 +1,9 @@
+const { spawnSync } = require('child_process')
+
 module.exports = (api, options) => {
+  spawnSync('vue', ['add', 'vuex@5.0.0'], { stdio: 'inherit' })
+  spawnSync('vue', ['add', 'vuetify@2.4.8'], { stdio: 'inherit' })
+
   const dependencies = {
     '@data-fair/dev-server': '^1.5.3',
     '@data-fair/components-app': '^0.2.7',
