@@ -1,6 +1,6 @@
 {
   "name": "@data-fair/vue-cli-plugin-app",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "A vue-cli plugin to create data-fair applications",
   "main": "index.js",
   "scripts": {
