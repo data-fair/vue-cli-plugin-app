@@ -1,4 +1,11 @@
 module.exports = pkg => {
+  if (!pkg.devDependencies['vue-cli-plugin-vuetify']) {
+    throw new Error('This plugin requires vuetify, please run "vue add vuetify" then try again.')
+  }
+  if (!pkg.devDependencies['@vue/cli-plugin-vuex']) {
+    throw new Error('This plugin requires vuex, please run "vue add vuex" then try again.')
+  }
+
   const prompts = [
     {
       type: 'list',
